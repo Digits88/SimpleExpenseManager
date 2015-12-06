@@ -16,6 +16,7 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.control;
 
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.control.exception.ExpenseManagerException;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.AccountDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.TransactionDAO;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.impl.InMemoryAccountDAO;
@@ -27,12 +28,12 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
  */
 public class InMemoryDemoExpenseManager extends ExpenseManager {
 
-    public InMemoryDemoExpenseManager() {
+    public InMemoryDemoExpenseManager() throws ExpenseManagerException{
         setup();
     }
 
     @Override
-    public void setup() {
+    public void setup() throws ExpenseManagerException {
         /*** Begin generating dummy data for In-Memory implementation ***/
 
         TransactionDAO inMemoryTransactionDAO = new InMemoryTransactionDAO();
